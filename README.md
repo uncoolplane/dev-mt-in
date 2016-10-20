@@ -81,7 +81,8 @@ __Find Friends View__
     * Page navigates to friend profile View when `View Profile` is clicked
 
 ## Day 3
-There are no new visuals and pages to add, but currently all our data is stored locally. Use the following API to POST, GET, PUT, and DELETE user profiles and friends:
+There are no new visuals and pages to add, but currently all our data is stored locally. Use the following 
+to POST, GET, PUT, and DELETE user profiles and friends:
 
 #### API Urls
 Base Url:
@@ -90,6 +91,8 @@ Base Url:
 `/api/profiles` - POST
 
 `/api/profiles/:id` - GET, DELETE, PUT
+
+`/api/profiles?name=Bob` - GET
 
 `'/api/profiles/:userid/friends/:friendId'` - DELETE, PUT
 
