@@ -8,9 +8,9 @@ This is an Intern Project.  What that means is that it is structure to look like
 
 That is all.  You will receive no instructions.
 
-Your mentors have been asked to provide only minimal guidance. They can point you in the right direction, but cannot help you code.  Similar to how an intern might receive guidance.  This project is a chance for you to combine and showcase the skills you've learned so far.  
+Your mentors have been asked to provide only minimal guidance. They can point you in the right direction, but cannot help you code.  Similar to how an intern might receive guidance.  This project is a chance for you to combine and showcase the skills you've learned so far.
 
-With this guidance only structure we believe this project will showcase what you can do as an individual at this point of the program. 
+With this guidance only structure we believe this project will showcase what you can do as an individual at this point of the program.
 Because of this we feel this project will be worth putting in your portfolio.
 
 Good luck and work hard!
@@ -33,9 +33,9 @@ These are located in the images folder in this project.
 
 ## Day 1:
 __Bottom Nav__
-* Navigation is controlled at the bottom of the screen
-* User can navigate between `View Friends` `Find Friends` and `Update Profile`
-* Currently focused 'page' is underlined
+* Navigation is controlled at the bottom of the screen (at top for now)
+* User can navigate between `View Friends` `Find Friends` and `Update Profile` (on hold ... need components to combine functionality)
+* Currently focused 'page' is underlined (???)
 
 __Entry View__
 * Entry view is seen when the user first enters the application
@@ -43,7 +43,7 @@ __Entry View__
 * User can add Full-name, tagline, bio, and profile pic URL
 * User can save changes
 * After saving changes user is taken to the Landing Page
-* Entry View looks like provided screen shots
+* Entry View looks like provided screen shots  (image?)
 
 __Landing Page__
 * User sees their name
@@ -70,7 +70,7 @@ __Friend Profile View__
 * User can navigate using the back button back to friends view
 * Add Friend Button
     * Says `Add Friend` if person is not your friend already
-        * Adds that person to your friend list 
+        * Adds that person to your friend list
     * Says `Remove Friend` if person is your friend
         * Removes that person to your friend list
 
@@ -81,7 +81,7 @@ __Find Friends View__
     * Page navigates to friend profile View when `View Profile` is clicked
 
 ## Day 3
-There are no new visuals and pages to add, but currently all our data is stored locally. Use the following 
+There are no new visuals and pages to add, but currently all our data is stored locally. Use the following
 to POST, GET, PUT, and DELETE user profiles and friends:
 
 #### API Urls
@@ -108,7 +108,7 @@ All profiles are stored with this structure that you must match when saving:
     profileUrl: ,
     friends: [friendId]
 }
-```    
+```
 
 ### Day 4 - Black Diamond
 This is a 'challenge' item.  To push above and beyond. It is not included in the design specs.
