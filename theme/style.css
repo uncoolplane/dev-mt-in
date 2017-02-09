@@ -1,3 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Lora');
+
+.med-gray {
+  background-color: #B6B6B6;
+}
+
+.dark-gray {
+  background-color: #232323;
+}
+
+.text-dark-gray {
+  color: #232323;
+}
+
+.text-med-gray {
+  color: #B6B6B6;
+}
+
+.med-blue {
+  background-color: #74FDF2;
+}
+
+.text-med-blue {
+  color: #74FDF2;
+}
+
+* {
+  color: black;
+  font-size: 10.2px;
+  font-family: "OpenSans", sans-serif;
+}
+
+h1 /*Name*/ {
+  font-family: 'Lora', serif;
+  font-size: 38.4px;
+  color: #272727;
+}
+
+h2 /*Landing Page*/, h3 /*Friend Profile View*/ {
+  font-family: 'Lora', serif;
+  font-size: 28px;
+  color: black;
+}
+
+h4 { /*friends*/
+  font-family: 'Lora', serif;
+  font-size: 19.8px;
+  color: #232323;
+}
+
+h5 /*Sally Rally*/{
+  font-family: 'Lora', serif;
+  font-size: 16.8px;
+  color: white;
+}
+
+h6 /*Search for Friends*/ {
+  font-family: 'Lora', serif;
+  font-size: 16.8px;
+}
+
+input[type=text],input[type="password"],textarea /*Full Name*/{
+  font-family: 'Lora', serif;
+  font-size: 16.8px;
+  color: #B6B6B6;
+}
+
+.tagline {
+  font-family: "OpenSans-Semibold", sans-serif;
+  color: black;
+  font-size: inherit;
+}
+
+.sort {
+  font-family: 'Lora', serif;
+  font-size: 6.6px;
+  color: #232323;
+}
+
+.btn {
+  font-family: 'Lora', serif;
+  font-size: 13.44px;
+  color: #9A9A9A;
+}
+
+.btn-default {
+  background-color: #00FFE9;
+}
+
+.btn.ViewFriends {
+  font-size: 13.2px;
+  font-family: 'OpenSans-Bold', sans-serif;
+}
+
+.btn.AddFriend, .btn.ViewProfile {
+  font-family: 'Lora', serif;
+  font-size: 12.07px;
+  color: #232323;
+}
+
+a, a.visited, a.hover {
+  color: #00FFE9;
+  text-decoration: none;
+}
+
 .row {
   border: 1px solid silver;
   border-radius: 10px;
