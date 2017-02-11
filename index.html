@@ -1,164 +1,172 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
 <html lang="en" ng-app="dev-mt-in">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>DevMtin</title>
-	<link rel="stylesheet" href="theme/reset.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="theme/style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dev-Mt-In</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="theme/app.css">
+    <link rel="stylesheet" href="theme/sticky-footer-navbar.css">
 </head>
 
 <body ng-controller="mainCtrl">
-	<!-- Static navbar -->
-	<nav class="navbar navbar-default navbar-static-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">DevMountain</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="../navbar/">View Friends</a></li>
-					<li><a href="./"><span class="glyphicon glyphicon-search"></span>&nbsp;Find Friends</a></li>
-					<!-- class="active" -->
-					<li><a href="../navbar-fixed-top/">Update Profile</a></li>
-				</ul>
-			</div>
-			<!--/.nav-collapse -->
-		</div>
-	</nav>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="#" ng-click="switchPage(-1)">Dev-Mt-In</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{active : $index===currentPage}" ng-repeat="page in pages track by $index">
+                        <!-- ng-class="{favorite: quote.isFavorite}"-->
+                        <a href="#" ng-click="switchPage($index)">{{page.caption}}</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
 
-	<div class="container-fluid">
-		<div class="row" id="login">
-			<div class="col-md-6">
-				<p>
-					<div>Welcome to the <a href="#">DevMountain</a> Social.</div>
-					<div>Add some info so friends can find you</div>
-				</p>
-				<form class="form-horizontal">
+    <div class="container">
+      <div class="debug">
+        edit mode  {{editMode}}<br>
+        logged in {{loggedIn}}
+      </div>
 
-					<div class="form-group">
-						<div class="col-sm-10">
-							<input type="text" class="form-control" name="username" value="" placeholder="User Name" ng-model="user.username">
-						</div>
-					</div>
 
-					<div class="form-group">
-						<div class="col-sm-10">
-							<input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="user.password">
-						</div>
-					</div>
+        <div ng-class="{hidden : !showPage(-1)}" id="welcome">
+            <div class="row">
+                <div ng-show="!editMode">
+                  <div class="col-md-6">
+                    <h1>{{user.name.first}} {{user.name.last}}</h1>
+                    <h2 class="tagline">{{user.tagline}}</h2>
 
-					<div class="form-group">
-						<div class="col-sm-10">
-							<input type="text" class="form-control" name="fullname" value="" placeholder="Full Name" ng-model="user.fullName">
-						</div>
-					</div>
+                    <p>{{user.about}}</p>
+                    <div class="friend-controls">
+                      <span><a href="#">Add Friend</a></span><span><a href="#">Remove Friend</a></span>
+                    </div>
+                    <div class="profile-controls">
+                      <span><a href="#" ng-click="EditProfile()">Edit</a></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <img ng-src="{{user.picture}}" alt="My Photo" class="profile-image">
+                  </div>
+                </div>
 
-					<div class="form-group">
-						<div class="col-sm-10">
-							<input type="text" class="form-control" name="tagline" value="" placeholder="Tagline" ng-model="user.tagLine">
-						</div>
-					</div>
+                <form id="userForm" ng-show="editMode" ng-submit="CreateProfile(userForm.$valid)" novalidate>
+                  <div class="" ng-hide="loggedIn">
+                    <h2>Welcome to DevMountain Social!</h2>
+                    <p>Add some info so friends can find you</p>
+                  </div>
+                  <div class="" ng-hide="!loggedIn">
+                    <h2>Edit Profile</h2>
+                  </div>
+                    <div class="input-group">
+                        <input id="firstname" type="text" class="form-control" name="firstname" placeholder="First Name" ng-model="user.name.first" required ng-required="true"><p ng-show="userForm.firstname.$invalid && !userForm.firstname.$pristine" class="help-block">You first name is required.</p>
+                    </div>
+                    <div class="input-group">
+                        <input id="lastname" type="text" class="form-control" name="lastname" placeholder="Last Name" ng-model="user.name.last" required><p ng-show="userForm.lastname.$invalid && !userForm.lastname.$pristine" class="help-block">You last name is required.</p>
+                    </div>
+                    <div class="input-group">
+                        <input id="url" type="text" class="form-control" name="url" placeholder="Profile Image Url" ng-model="user.picture" required><p ng-show="userForm.url.$invalid && !userForm.url.$pristine" class="help-block">You picture is required.</p>
+                    </div>
+                    <div class="input-group">
+                        <input id="tagline" type="text" class="form-control" name="tagline" placeholder="Tagline" ng-model="user.tagline" required><p ng-show="userForm.tagline.$invalid && !userForm.tagline.$pristine" class="help-block">You Tagline is required.</p>
+                    </div>
+                    <div class="input-group">
+                      <textarea id="bio" class="form-control" name="bio" placeholder="Bio" ng-model="user.about">
+                      </textarea>
+                    </div>
 
-					<div class="form-group">
-						<div class="col-sm-10">
-							<input type="text" class="form-control" name="profileimage" value="" placeholder="Profile Image Url" ng-model="user.imageUrl">
-						</div>
-					</div>
+                    <div class="input-group">
+                      <input type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">
+                    </div>
+                </form>
+            </div>
 
-					<div class="form-group">
-						<div class="col-sm-10">
-							<textarea name="bio" class="form-control" rows="8" cols="80" placeholder="Bio" ng-model="user.bio"></textarea>
-						</div>
-					</div>
+        </div>
 
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
-							<input type="text" name="id" value="" ng-model="user.id" class="hidden">
-							<button type="submit" name="createAccount" class="btn btn-default">Create Account/Save Changes</button>
-							<button type="button" name="signIn" class="btn">Sign in</button>
-						</div>
-					</div>
-				</form>
 
-			</div>
-			<div class="col-md-6">
-				<img src="images/triangle.png" alt="triangle">
-			</div>
-		</div>
-		<!-- End Login -->
+        <div ng-class="{hidden : !showPage(0)}" id="viewFriends">
+            <h2>View Friends</h2>
+            <div class="row">
 
-		<div class="row" id="profile">
-			<div class="col-md-6">
-				<h1>{{showUser.fullName}}</h1>
-				<h2 class="tagline">{{showUser.tagLine}}</h2>
+                <form class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                        <input id="search" type="text" class="form-control" name="search" placeholder="Search" ng-model="search">
+                    </div>
+                </form>
+            </div>
 
-				<p>{{showUser.bio}}</p>
-				<div class="friend-controls">
-					<span><a href="#">Add Friend</a></span><span><a href="#">Remove Friend</a></span>
-				</div>
-				<div class="profile-controls">
-					<span><a href="#">Edit</a></span>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<img ng-src="{{showUser.imageUrl}}" alt="My Photo" class="profile-image">
-			</div>
-		</div>
+            <div class="wrapper row row-equal-height">
+                <div class="col-xs-12 col-sm-6 col-md-4 m-b-0" ng-repeat="friend in friends | orderBy: '-name.first':'-name.last' | filter:search track by $index">
+                    <div class="tile" tabindex="0" role="button">
+                        <!-- <div class="tile-ribbon-benefit">Favorite</div> -->
+                        <div class="tile-icon">
+                            <div class="circle circle-lg circle-responsive">
+                                <img ng-src="{{friend.picture}}{{friend.name.first}} {{friend.name.last}}" ng-alt="{{friend.name.first}} {{friend.name.last}}">
+                            </div>
+                        </div>
+                        <div class="tile-text">
+                            {{friend.name.first}} {{friend.name.last}}
+                            <h5>...</h5>
+                            <p>...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-		<div class="row" id="friends">
-			<div class="col-md-6">
-				<h1>Chris Johnson</h1>
-				<h2 class="tagline">Some Awesome Tagline About You</h2>
-				<p>You want your tree to have some character. Make it special. Let's get wild today. Be so very light. Be a gentle whisper. It's a super day, so why not make a beautiful sky? The very fact that you're aware of suffering is enough reason to be overjoyed
-					that you're alive and can experience it. You can spend all day playing with mountains.</p>
+            <div ng-class="{hidden : !showPage(1)}" id="findFriends">
+                <h2>Find Friends</h2>
+            </div>
 
-				<p>Only think about one thing at a time. Don't get greedy. Trees cover up a multitude of sins. It's life. It's interesting. It's fun. The light is your friend. Preserve it. Just relax and let it flow. That easy.</p>
+            <div ng-class="{hidden : !showPage(2)}" id="viewProfile">
+                <h2>View Profile</h2>
+            </div>
 
-				<p>That's what painting is all about. It should make you feel good when you paint. Just let this happen. We just let this flow right out of our minds. Trees grow in all kinds of ways. They're not all perfectly straight. Not every limb is perfect.</p>
-				</p>
-			</div>
-			<div class="col-md-6">
-				<button type="button" class="btn sort" name="button">Ascending</button>
-				<div class="input-group">
-					<input type="text" name="search" class="form-control" value="" placeholder="Friends">
-					<!--Search for Friends-->
-					<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-				</div>
-				<div class="row">
-					<div class="col-md-6 friend">
-					</div>
-					<div class="col-md-6 friend">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 friend">
-					</div>
-					<div class="col-md-6 friend">
-					</div>
-				</div>
-			</div>
-		</div>
+        </div>
+        <!-- /.container -->
 
-	</div>
-	<!-- End Container -->
-
-	<span>
-		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"> </script>
-		<script type="text/javascript" src="script/app.js"> </script>
-		<script type="text/javascript" src="script/ctrl.js"> </script>
-		<script type="text/javascript" src="script/service.js"> </script>
-	</span>
+        <footer class="footer">
+            <div class="container">
+                <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+                <div class="text-muted">&copy; 2017</div>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+            < /script> <
+            script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity = "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin = "anonymous" >
+        </script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+        <script type="text/javascript" src="script/app.js">
+        </script>
+        <script type="text/javascript" src="script/ctrl.js">
+        </script>
+        <script type="text/javascript" src="script/service.js">
+        </script>
 </body>
 
 </html>

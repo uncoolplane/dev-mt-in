@@ -35,7 +35,7 @@ These are located in the images folder in this project.
 __Bottom Nav__
 * Navigation is controlled at the bottom of the screen (at top for now)
 * User can navigate between `View Friends` `Find Friends` and `Update Profile` (on hold ... need components to combine functionality)
-* Currently focused 'page' is underlined (???)
+* Currently focused 'page' is underlined
 
 __Entry View__
 * Entry view is seen when the user first enters the application
@@ -43,7 +43,7 @@ __Entry View__
 * User can add Full-name, tagline, bio, and profile pic URL
 * User can save changes
 * After saving changes user is taken to the Landing Page
-* Entry View looks like provided screen shots  (image?)
+* Entry View looks like provided screen shots 
 
 __Landing Page__
 * User sees their name
