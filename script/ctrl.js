@@ -5,27 +5,22 @@ angular.module("dev-mt-in").controller('mainCtrl', function($scope, $location, f
   $scope.editMode = true;
   $scope.user = {
     _id: "0",
-    index: -1,
-    iSCurrent: true,
-    name: {
-      first: "",
-      last: ""
-    },
+    name: "",
     company: "",
     picture: "http://lorempixel.com/200/200/people/",
     email: "",
     phone: "",
     address: "",
     about: "",
-    registered: "Wednesday, January 15, 2014 7:35 PM",
     friends: [
     ],
     tagline: ""
   };
-  $scope.CreateProfile = function() {
+  $scope.CreateProfile = function(isValid) {
     //Validate from screen???
-    if($scope.user.name.first !== '' && $scope.user.name.last !== ''
-  && $scope.user.picture !== '') {
+    //$scope.user.name.first !== '' && $scope.user.name.last !== ''
+  //&& $scope.user.picture !== ''
+    if(isValid) {
         $scope.loggedIn = true;
         $scope.editMode = false;
       }
@@ -37,11 +32,13 @@ angular.module("dev-mt-in").controller('mainCtrl', function($scope, $location, f
 
   //Navigation
   $scope.pages = [
-    {caption:"View Friends", id:'viewFriends'},
-    {caption:"Find Friends", id:'findFriends'},
-    {caption:"Update Profile", id:'viewProfile'}];
+    {caption:''},
+    {caption:"View Friends"},
+    {caption:"Find Friends"},
+    {caption:"Update Profile"}
+  ];
 
-  $scope.currentPage = -1;
+  $scope.currentPage = 0;
   $scope.showPage = function(index) {
     return index === $scope.currentPage;
   };
@@ -49,6 +46,11 @@ angular.module("dev-mt-in").controller('mainCtrl', function($scope, $location, f
   $scope.switchPage = function(index) {
     if($scope.loggedIn) {
       $scope.currentPage = index;
+      if(index === $scope.pages.length-1) {
+        $scope.editMode = true;
+      } else {
+        $scope.editMode = false;
+      }
     }
   };
 })

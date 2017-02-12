@@ -1,0 +1,51 @@
+<div class="friend-controls">
+  <span><a class="btn" href="#">Add Friend</a></span>
+  <span><a class="btn" href="#">Remove Friend</a></span>
+</div>
+
+<div class="row">
+  <!--Column 1-->
+  <div class="row viewProfile" ng-show="!editMode">
+    <div class="col-md-6">
+      <h1>{{user.name}}</h1>
+      <h2 class="tagline">{{user.tagline}}</h2>
+
+      <p>{{user.about}}</p>
+
+      <div class="profile-controls">
+        <span><a href="#" class="btn" ng-click="EditProfile()">Edit</a></span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <img ng-src="{{user.picture}}" alt="My Photo" class="profile-image">
+    </div>
+  </div>
+  <div class="editProfile" ng-show="editMode">
+    <form name="userForm" ng-show="editMode" ng-submit="CreateProfile(userForm.$valid)" novalidate>
+
+      <div class="" ng-hide="!loggedIn">
+        <h2>Update Profile</h2>
+      </div>
+        <div class="input-group">
+            <input type="text" class="form-control" name="fullname" placeholder="Full Name" ng-model="user.name" required ng-required="true"><p ng-show="userForm.fullname.$invalid && !userForm.fullname.$pristine" class="help-block">You name is required.</p>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" name="url" placeholder="Profile Image Url" ng-model="user.picture" required><p ng-show="userForm.url.$invalid && !userForm.url.$pristine" class="help-block">You picture is required.</p>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" name="tagline" placeholder="Tagline" ng-model="user.tagline" required><p ng-show="userForm.tagline.$invalid && !userForm.tagline.$pristine" class="help-block">You Tagline is required.</p>
+        </div>
+        <div class="input-group">
+          <textarea class="form-control" name="bio" placeholder="Bio" ng-model="user.about">
+          </textarea>
+        </div>
+
+        <div class="input-group">
+          <input type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">
+        </div>
+    </form>
+  </div>
+
+  <!--Column 2-->
+  
+</div>
