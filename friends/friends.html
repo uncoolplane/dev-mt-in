@@ -1,0 +1,25 @@
+<h2 ng-class="{hidden : !showPage(1)}">View Friends</h2>
+<h2 ng-class="{hidden : !showPage(2)}">Find Friends</h2>
+<div class="row search">
+    <form class="col-md-6">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input id="search" type="text" class="form-control" name="search" placeholder="Search" ng-model="search">
+        </div>
+    </form>
+</div>
+<div class="wrapper row row-equal-height">
+    <div class="col-xs-12 col-sm-6 col-md-4 m-b-0" ng-repeat="friend in friends | orderBy: 'name' | filter:search track by $index">
+        <div class="tile" tabindex="0" role="button" ng-click="showProfile(friend._id)">
+            <div class="tile-icon">
+                <div class="circle circle-lg circle-responsive">
+                    <img ng-src="{{friend.profile.url}}{{friend.name}}" ng-alt="{{friend.name}}">
+                    <a href="#" class="btn btn-default">View Profile</a>
+                </div>
+            </div>
+            <div class="tile-text">
+                {{friend.name}}
+            </div>
+        </div>
+    </div>
+</div>

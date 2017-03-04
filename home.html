@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="dev-mt-in">
+  <head>
+    <meta charset="utf-8">
+    <title>Dev-Mt-In</title>
+    <!--Bootstrap-->
+    <!--App-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav-bar" ng-include="nav.html"> </div>
+
+      <ui-view></ui-view><!--2 column loading seperate views?-->
+
+      <div class="footer">
+
+      </div>
+    </div>
+
+    <!-- Libraries -->
+    <script src="" charset="utf-8"></script><!--JQuery-->
+    <script src="" charset="utf-8"></script><!--Angular-->
+    <script src="" charset="utf-8"></script><!--UI.Router-->
+
+    <!--App-->
+    <script src="script/app.js" charset="utf-8"></script>
+
+    <!--Controllers-->
+    <script src="login/loginService.js" charset="utf-8"></script>
+    <script src="friends/friendsService.js" charset="utf-8"></script>
+
+    <script src="login/loginCtrl.js" charset="utf-8"></script>
+    <script src="friends/friendsCtrl.js" charset="utf-8"></script>
+    <script src="profile/profileCtrl.js" charset="utf-8"></script>
+    <script src="profiledetails/profileDetailsCtrl.js" charset="utf-8"></script>
+    <script src="profileimage/profileImageCtrl.js" charset="utf-8"></script>
+
+  </body>
+</html>
