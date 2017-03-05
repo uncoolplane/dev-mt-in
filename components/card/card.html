@@ -1,0 +1,9 @@
+<!--add class 'profilecard' to containing div-->
+  <div class="thumbnail">
+    <img class="profileimage" ng-src="{{image}}" alt="{{title}}">
+    <h3 class="profiletitle">{{title}}</h3>
+    <em>{{byline}}</em>
+    <p class="profiledescription">{{description}}</p>
+    <button ng-if="primaryHandler" class="btn btn-primary" ng-click="primaryHandler(_id)">{{if(primaryLabel) ? primaryLabel : 'Primary Button'}}</button>
+    <button ng-if="seconaryHandler" class="btn btn-secondary" type="button" ng-click="secondaryHandler(_id)">{{if(secondaryLabel) ? secondaryLabel : 'Secondary Button'}}</button>
+  </div>

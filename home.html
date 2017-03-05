@@ -1,39 +1,83 @@
 <!DOCTYPE html>
 <html ng-app="dev-mt-in">
-  <head>
+
+<head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>Dev-Mt-In</title>
-    <!--Bootstrap-->
-    <!--App-->
-  </head>
-  <body>
-    <div class="container">
-      <div class="nav-bar" ng-include="nav.html"> </div>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
-      <ui-view></ui-view><!--2 column loading seperate views?-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-      <div class="footer">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-      </div>
+    <link rel="stylesheet" href="/css/master.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+                <a class="navbar-brand" href="#">Dev-Mt-In</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="friends">View Friends</a></li>
+                    <li><a ui-sref="profiles">Find Friends</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a ui-sref="landing">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class=" container ">
+        <ui-view></ui-view>
+        <!--2 column loading seperate views?-->
+    </div>
+
+    <div class="footer ">
+
     </div>
 
     <!-- Libraries -->
-    <script src="" charset="utf-8"></script><!--JQuery-->
-    <script src="" charset="utf-8"></script><!--Angular-->
-    <script src="" charset="utf-8"></script><!--UI.Router-->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js " integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin=" anonymous "></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js " integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa " crossorigin="anonymous "></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js " charset="utf-8 "></script>
+
+    <script src="script/utilities.js" charset="utf-8"></script>
 
     <!--App-->
-    <script src="script/app.js" charset="utf-8"></script>
+    <script src="script/app.js " charset="utf-8 "></script>
+
+    <!--Directives-->
+    <script src="components/card/card.js" charset="utf-8"></script>
+
+    <!--Services-->
+    <script src="services/profileService.js" charset="utf-8"></script>
+    <script src="services/friendService.js" charset="utf-8"></script>
 
     <!--Controllers-->
-    <script src="login/loginService.js" charset="utf-8"></script>
-    <script src="friends/friendsService.js" charset="utf-8"></script>
+    <script src="initial/profileDetailsCtrl.js" charset="utf-8"></script>
+    <script src="landing/landingCtrl.js" charset="utf-8"></script>
+    <script src="friends/friendCtrl.js" charset="utf-8"></script>
+    <script src="profile/profilesCtrl.js" charset="utf-8"></script>
+</body>
 
-    <script src="login/loginCtrl.js" charset="utf-8"></script>
-    <script src="friends/friendsCtrl.js" charset="utf-8"></script>
-    <script src="profile/profileCtrl.js" charset="utf-8"></script>
-    <script src="profiledetails/profileDetailsCtrl.js" charset="utf-8"></script>
-    <script src="profileimage/profileImageCtrl.js" charset="utf-8"></script>
-
-  </body>
 </html>

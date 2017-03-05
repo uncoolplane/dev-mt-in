@@ -1,0 +1,26 @@
+<form name="userForm" ng-show="editMode" ng-submit="CreateProfile(userForm.$valid, user)" novalidate>
+
+    <div class="" ng-hide="!loggedIn">
+        <h2>Update Profile</h2>
+    </div>
+    <div class="input-group">
+        <input type="text" class="form-control" name="fullname" placeholder="Full Name" ng-model="user.name" required ng-required="true">
+        <p ng-show="userForm.fullname.$invalid && !userForm.fullname.$pristine" class="help-block">You name is required.</p>
+    </div>
+    <div class="input-group">
+        <input type="text" class="form-control" name="url" placeholder="Profile Image Url" ng-model="user.profileUrl" required>
+        <p ng-show="userForm.url.$invalid && !userForm.url.$pristine" class="help-block">You picture is required.</p>
+    </div>
+    <div class="input-group">
+        <input type="text" class="form-control" name="tagline" placeholder="Tagline" ng-model="user.tagline" required>
+        <p ng-show="userForm.tagline.$invalid && !userForm.tagline.$pristine" class="help-block">You Tagline is required.</p>
+    </div>
+    <div class="input-group">
+        <textarea class="form-control" name="bio" placeholder="Bio" ng-model="user.bio">
+      </textarea>
+    </div>
+
+    <div class="input-group">
+        <input type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">
+    </div>
+</form>

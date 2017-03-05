@@ -1,4 +1,4 @@
-angular.module('dev-mt-in').controller('friendCtrl', function($scope, profileService, friendService) {
+angular.module('dev-mt-in').controller('profileCtrl', function($scope, profileService, friendService) {
   $scope.init = function() {
       $scope.user = profileService.getProfile();
       if(!$scope.user.friends) {
@@ -6,18 +6,14 @@ angular.module('dev-mt-in').controller('friendCtrl', function($scope, profileSer
       }
 
       $scope.loggedIn = $scope.user;
-      $scope.getFriends();
-  }
-
-  $scope.getFriends = function() {
-    $scope.friends = friendService.getFriends($scope.user.friends);
+      $scope.profiles = friendService.getProfiles()
   }
 
   $scope.showFriend = function(id) {
 
   }
 
-  $scope.removeFriend = function(friend) {
+  $scope.addFriend = function(friend) {
     // TODO: $scope.user.friends.push(friend._id);
     profileService.updateProfile($scope.user);
     $scope.getFriends();

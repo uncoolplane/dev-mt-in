@@ -1,23 +1,10 @@
-<div class="row">
-    <div class="col col-md-6">
-
-        <h1>{{user.name}}</h1>
-        <h2 class="tagline">{{user.tagline}}</h2>
-
-        <p>{{user.bio}}</p>
-    </div>
-    <div class="col col-md-6">
-        <img ng-src="{{user.profile.url}}" alt="My Photo" class="profile-image" width="300" height="300">
-    </div>
-</div>
-
-<div class="row">
-    <div class="profile-controls" ng-if="user._id===currentUser._id">
-        <a class="btn btn-default" href="#" role="button" ng-click="EditProfile(user.id)">Edit Profile</a>
-    </div>
-
-    <div class="friend-controls" ng-if="user._id!==currentUser._id">
-        <a class="btn btn-default" role="button" href="#">Add Friend</a>
-        <a class="btn btn-default" role="button" href="#">Remove Friend</a>
-    </div>
-</div>
+<h2>Find Friends</h2>
+<show-card class="profilecard" ng-repeat="friend in profiles"
+_id="friend._id"
+title="friend.name"
+description="friend.bio"
+byline="friend.tagline"
+image="{{friend.profileUrl}}"
+primaryLabel="Add Friend"
+primaryHandler="addFriend(friend)"
+></show-card>
